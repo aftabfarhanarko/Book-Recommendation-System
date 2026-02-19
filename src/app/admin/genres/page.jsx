@@ -1,0 +1,26 @@
+export default function AdminGenresPage() {
+  return (
+    <div className="flex flex-1 overflow-hidden">
+      <main className="flex-1 overflow-y-auto p-8 bg-gradient-to-br from-slate-900/80 via-slate-950 to-slate-900/80">
+        <section className="rounded-2xl border border-slate-800 bg-slate-900/70 px-6 py-5 shadow-lg shadow-slate-950/40">
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-lg font-semibold text-slate-50">
+              Manage Genres
+            </h1>
+            <button className="px-3 py-1.5 rounded-full text-xs font-medium bg-indigo-600 text-white hover:bg-indigo-500">
+              Add genre
+            </button>
+          </div>
+          <p className="text-xs text-slate-400 mb-4">
+            Here you will create and edit genres and link them to books. This
+            is a placeholder designed in the same premium admin style.
+          </p>
+          <div className="rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 text-xs text-slate-300">
+            Placeholder for genre list with name, description, and actions.
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
+

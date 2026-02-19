@@ -12,14 +12,24 @@ import {
   Search,
   Settings,
   Sun,
+  Users,
 } from "lucide-react";
 
-const navItems = [
+const userNavItems = [
   { label: "Dashboard", href: "/", icon: LayoutDashboard },
   { label: "Discover", href: "/discover", icon: Search },
   { label: "My Library", href: "/bookmark", icon: Library },
   { label: "Settings", href: "/settings", icon: Settings },
   { label: "Help", href: "/help", icon: HelpCircle },
+];
+
+const adminNavItems = [
+  { label: "Overview", href: "/admin", icon: LayoutDashboard },
+  { label: "Manage Books", href: "/admin/books", icon: Library },
+  { label: "Manage Genres", href: "/admin/genres", icon: Settings },
+  { label: "Manage Users", href: "/admin/users", icon: Users },
+  { label: "Moderate Reviews", href: "/admin/reviews", icon: HelpCircle },
+  { label: "Manage Tutorials", href: "/admin/tutorials", icon: LifeBuoy },
 ];
 
 function IconWrapper({ children, active }) {
@@ -36,7 +46,14 @@ function IconWrapper({ children, active }) {
   );
 }
 
-export function DashboardShell({ children }) {
+function Shell({
+  children,
+  navItems,
+  title,
+  subtitle,
+  userLabel,
+  searchPlaceholder,
+}) {
   const pathname = usePathname();
 
   return (
@@ -49,10 +66,10 @@ export function DashboardShell({ children }) {
             </div>
             <div className="flex flex-col">
               <span className="text-sm font-semibold tracking-wide">
-                Book Worm
+                {title}
               </span>
               <span className="text-[11px] text-slate-400">
-                Reading dashboard
+                {subtitle}
               </span>
             </div>
           </div>
@@ -121,7 +138,7 @@ export function DashboardShell({ children }) {
               <Search className="h-4 w-4 text-slate-400" />
               <input
                 className="bg-transparent text-sm outline-none w-full placeholder:text-slate-500 text-slate-100"
-                placeholder="Search books, authors, topics…"
+                placeholder={searchPlaceholder}
                 type="text"
               />
             </div>
@@ -134,7 +151,7 @@ export function DashboardShell({ children }) {
               </button>
               <div className="flex items-center gap-2 rounded-full bg-slate-800 px-2 py-1">
                 <div className="w-7 h-7 rounded-full bg-gradient-to-br from-sky-400 to-indigo-500" />
-                <span className="text-xs text-slate-200 pr-1">User</span>
+                <span className="text-xs text-slate-200 pr-1">{userLabel}</span>
               </div>
             </div>
           </header>
@@ -145,5 +162,33 @@ export function DashboardShell({ children }) {
         </div>
       </div>
     </div>
+  );
+}
+
+export function DashboardShell({ children }) {
+  return (
+    <Shell
+      navItems={userNavItems}
+      title="Book Worm"
+      subtitle="Reading dashboard"
+      userLabel="User"
+      searchPlaceholder="Search books, authors, topics…"
+    >
+      {children}
+    </Shell>
+  );
+}
+
+export function AdminShell({ children }) {
+  return (
+    <Shell
+      navItems={adminNavItems}
+      title="Book Worm Admin"
+      subtitle="Management panel"
+      userLabel="Admin"
+      searchPlaceholder="Search books, users, content…"
+    >
+      {children}
+    </Shell>
   );
 }
