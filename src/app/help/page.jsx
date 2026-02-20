@@ -2,22 +2,55 @@
 
 import { DashboardShell } from "@/components/dashboard/DashboardShell";
 
+const tutorialVideos = [
+  "https://www.youtube.com/embed/WRvotdUvNEw",
+  "https://www.youtube.com/embed/HM0dK5Tt9Nc",
+  "https://www.youtube.com/embed/BkYQHcF3JxE",
+  "https://www.youtube.com/embed/9T8I4pQZ_C4",
+  "https://www.youtube.com/embed/5b7bZ_hgfIY",
+  "https://www.youtube.com/embed/3yQ9W2G3yt8",
+  "https://www.youtube.com/embed/gB2ehQ73W6E",
+  "https://www.youtube.com/embed/9pWZ_4GZ7ZU",
+  "https://www.youtube.com/embed/4N2zHv4ZRxA",
+  "https://www.youtube.com/embed/3V1V3cj7cQ4",
+  "https://www.youtube.com/embed/6v2L2UGZJAM",
+  "https://www.youtube.com/embed/bJzF5ZkVwUc",
+];
+
 export default function HelpPage() {
   return (
     <DashboardShell>
       <main className="flex-1 overflow-y-auto p-6">
-        <section className="bg-slate-900/60 rounded-2xl h-full border border-dashed border-slate-700 flex flex-col items-center justify-center text-center px-6">
-          <h1 className="text-2xl font-semibold text-slate-50 mb-2">
-            Help & Tutorials
-          </h1>
-          <p className="text-sm text-slate-400 max-w-md mb-4">
-            This page will show FAQs and the embedded YouTube tutorials you
-            mentioned for users.
-          </p>
-          <p className="text-xs text-slate-500">
-            Later you can replace this placeholder with a real list of videos
-            and support information.
-          </p>
+        <section className="rounded-2xl border border-slate-800 bg-slate-900/70 px-5 py-5 shadow-lg shadow-slate-950/40">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h1 className="text-xl font-semibold text-slate-50">
+                Tutorials & Reading Tips
+              </h1>
+              <p className="text-xs text-slate-400">
+                Watch book recommendations, reviews, and reading habit tips.
+              </p>
+            </div>
+            <span className="rounded-full bg-indigo-500/20 px-3 py-1 text-[11px] text-indigo-200">
+              10+ curated videos
+            </span>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {tutorialVideos.map((src) => (
+              <div
+                key={src}
+                className="aspect-video w-full overflow-hidden rounded-xl border border-slate-800 bg-slate-950"
+              >
+                <iframe
+                  src={src}
+                  title="Book tutorial"
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            ))}
+          </div>
         </section>
       </main>
     </DashboardShell>

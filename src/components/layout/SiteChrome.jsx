@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const userLinks = [
   { label: "Dashboard", href: "/" },
-  { label: "Browse Books", href: "/discover" },
+  { label: "Browse Books", href: "/browse" },
   { label: "My Library", href: "/bookmark" },
   { label: "Tutorials", href: "/help" },
 ];
@@ -71,4 +71,3 @@ export function SiteChrome({ children }) {
     </div>
   );
 }
-

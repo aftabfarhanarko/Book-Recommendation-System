@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 const cards = [
   { label: "Total Books", value: "1,248", trend: "+12%" },
   { label: "Active Users", value: "3,560", trend: "+8%" },
@@ -8,6 +10,22 @@ const quickItems = [
   { label: "Add new book", target: "Books" },
   { label: "Create genre", target: "Genres" },
   { label: "Review reports", target: "Reviews" },
+];
+
+const booksPerGenre = [
+  { genre: "Fiction", count: 420 },
+  { genre: "Business", count: 210 },
+  { genre: "Self-help", count: 180 },
+  { genre: "Fantasy", count: 160 },
+];
+
+const monthlyReads = [
+  { month: "Jan", books: 18 },
+  { month: "Feb", books: 22 },
+  { month: "Mar", books: 27 },
+  { month: "Apr", books: 19 },
+  { month: "May", books: 24 },
+  { month: "Jun", books: 21 },
 ];
 
 export default function AdminOverviewPage() {
@@ -40,6 +58,37 @@ export default function AdminOverviewPage() {
               <span className="text-xs text-slate-400">
                 High level summary of platform health
               </span>
+            </div>
+
+            <div className="mt-5 grid grid-cols-2 gap-4 text-xs text-slate-300">
+              <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 px-4 py-3">
+                <p className="text-slate-400 mb-2">Books per genre</p>
+                <ul className="space-y-1">
+                  {booksPerGenre.map((row) => (
+                    <li
+                      key={row.genre}
+                      className="flex items-center justify-between"
+                    >
+                      <span>{row.genre}</span>
+                      <span className="text-slate-400">{row.count}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 px-4 py-3">
+                <p className="text-slate-400 mb-2">Monthly books added</p>
+                <ul className="space-y-1">
+                  {monthlyReads.map((row) => (
+                    <li
+                      key={row.month}
+                      className="flex items-center justify-between"
+                    >
+                      <span>{row.month}</span>
+                      <span className="text-slate-400">{row.books}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-4 text-xs text-slate-300">
               <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 px-4 py-3">
@@ -115,4 +164,3 @@ export default function AdminOverviewPage() {
     </div>
   );
 }
-
