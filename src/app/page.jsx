@@ -48,6 +48,21 @@ const blogs = [
   },
 ];
 
+const recommendations = [
+  {
+    title: "Slow Mornings, Strong Stories",
+    reason: "Because you enjoy emotional contemporary fiction",
+  },
+  {
+    title: "Deep Work",
+    reason: "Based on your interest in focus and productivity books",
+  },
+  {
+    title: "The Midnight Library",
+    reason: "You like reflective, what-if style narratives",
+  },
+];
+
 export default function Home() {
   return (
     <DashboardShell>
@@ -129,6 +144,33 @@ export default function Home() {
                           {item.progress}% complete
                         </span>
                       </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              <section className="rounded-2xl border border-amber-500/40 bg-gradient-to-r from-amber-900/40 via-slate-900 to-amber-900/40 px-5 py-4 shadow-lg shadow-amber-900/40">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <h2 className="text-base font-bold text-amber-100">
+                      Recommended for you
+                    </h2>
+                    <p className="text-[11px] text-amber-200/80">
+                      Simple suggestions based on your shelves and recent reads.
+                    </p>
+                  </div>
+                  <span className="rounded-full bg-amber-500/20 px-3 py-1 text-[11px] text-amber-100">
+                    Cozy picks
+                  </span>
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  {recommendations.map((item) => (
+                    <div
+                      key={item.title}
+                      className="rounded-xl border border-amber-500/40 bg-amber-950/40 px-3 py-3 text-[11px] text-amber-100"
+                    >
+                      <div className="font-semibold mb-1">{item.title}</div>
+                      <div className="text-amber-200/80">{item.reason}</div>
                     </div>
                   ))}
                 </div>
