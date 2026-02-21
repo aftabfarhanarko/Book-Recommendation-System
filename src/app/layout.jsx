@@ -26,9 +26,9 @@ export default function RootLayout({ children }) {
       >
         <div className="flex min-h-screen flex-col md:flex-row">
           {/* Sidebar */}
-          <aside className="hidden md:block md:w-64 border-r border-slate-200 bg-white">
+          <div className="hidden md:block">
             <Sidebar />
-          </aside>
+          </div>
 
           {/* Main Area */}
           <div className="flex-1 flex flex-col">

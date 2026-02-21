@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Bell, LogIn, Menu, Search, UserPlus, X } from "lucide-react";
+import { Bell, BookOpen, LogIn, Menu, Search, UserPlus } from "lucide-react";
 import Sidebar from "@/components/nav/Sidebar";
 
 const TopNavbar = () => {
@@ -12,17 +12,27 @@ const TopNavbar = () => {
     <>
       <header className="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div className="flex items-center justify-between gap-4 px-4 sm:px-6 h-16 max-w-7xl mx-auto">
-          <button
-            type="button"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 hover:text-sky-500 hover:border-sky-300 transition md:hidden"
-            aria-label="Toggle sidebar"
-            onClick={() => setOpen(true)}
-          >
-            <Menu size={18} />
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 hover:text-sky-500 hover:border-sky-300 transition md:hidden"
+              aria-label="Toggle sidebar"
+              onClick={() => setOpen(true)}
+            >
+              <Menu size={18} />
+            </button>
+            <div className="flex items-center gap-2">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-500 text-white shadow-sm">
+                <BookOpen size={18} strokeWidth={2} />
+              </div>
+              <span className="hidden lg:inline text-sm font-semibold tracking-tight text-slate-900">
+                Book dashboard
+              </span>
+            </div>
+          </div>
 
           <div className="flex-1 flex items-center justify-end gap-4">
-            <div className="w-full max-w-md hidden sm:block">
+            <div className="w-full max-w-md hidden md:block">
               <div className="flex items-center gap-2 rounded-2xl bg-slate-100 border border-slate-200 px-3 py-2 shadow-sm">
                 <Search size={16} className="text-slate-400" />
                 <input
@@ -67,20 +77,7 @@ const TopNavbar = () => {
             onClick={() => setOpen(false)}
             aria-label="Close sidebar"
           />
-          <div className="relative z-50 w-72 max-w-[80%] bg-white shadow-xl border-r border-slate-200">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200">
-              <span className="text-sm font-semibold text-slate-900">
-                Navigation
-              </span>
-              <button
-                type="button"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
-                onClick={() => setOpen(false)}
-                aria-label="Close sidebar"
-              >
-                <X size={16} />
-              </button>
-            </div>
+          <div className="relative z-50 max-w-[80%] h-full">
             <Sidebar />
           </div>
         </div>
