@@ -21,22 +21,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <div className="flex min-h-screen">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} bg-white text-slate-900`}
+      >
+        <div className="flex min-h-screen flex-col md:flex-row">
           {/* Sidebar */}
-          <aside className="w-64 bg-gray-900 text-white p-4">
-            <Sidebar></Sidebar>
+          <aside className="w-full md:w-64 border-b md:border-b-0 md:border-r border-slate-200 bg-white">
+            <Sidebar />
           </aside>
 
           {/* Main Area */}
           <div className="flex-1 flex flex-col">
             {/* Top Navbar */}
-            <header className="h-16 bg-white border-b flex items-center px-6">
-              <TopNevbar></TopNevbar>
-            </header>
-
+            <TopNevbar />
             {/* Page Content */}
-            <main className="flex-1 p-6 bg-gray-50">{children}</main>
+            <main className="flex-1 p-4 md:p-6 bg-white">{children}</main>
           </div>
         </div>
       </body>

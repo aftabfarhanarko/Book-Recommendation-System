@@ -40,43 +40,39 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   const linkClass = (path) =>
-    `flex items-center rounded-xl transition-all duration-200 
+    `flex items-center rounded-xl border transition-all duration-200 
     ${collapsed ? "justify-center py-3" : "gap-3 px-4 py-2.5"}
     ${
       pathname === path
-        ? "bg-sky-500/15 text-sky-400 font-semibold border-sky-400"
-        : "text-slate-400 hover:bg-slate-700/50 hover:text-slate-200 border-transparent"
+        ? "bg-sky-50 text-sky-600 font-semibold border-sky-400"
+        : "text-slate-600 hover:bg-slate-100 hover:text-slate-900 border-transparent"
     }`;
 
   return (
     <aside
       className={`
         ${collapsed ? "w-[72px]" : "w-64"}
-        min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900
+        min-h-screen bg-white
         flex flex-col transition-all duration-300 ease-in-out
-        shadow-2xl border-r border-slate-700/50 relative overflow-hidden
+        border-r border-slate-200 relative overflow-hidden
       `}
     >
-      {/* Glow blobs */}
-      <div className="absolute -top-16 -left-10 w-48 h-48 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-20 -right-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-
       {/* Header */}
       <div
-        className={`flex items-center border-b border-slate-700/50 min-h-[72px]
+        className={`flex items-center border-b border-slate-200 min-h-[72px]
         ${collapsed ? "justify-center" : "justify-between px-5"}`}
       >
         {!collapsed && (
           <div className="flex items-center gap-2.5">
-            <BookMarked size={26} className="text-sky-400" strokeWidth={2} />
-            <span className="text-slate-100 font-bold text-lg tracking-tight">
+            <BookMarked size={26} className="text-sky-500" strokeWidth={2} />
+            <span className="text-slate-900 font-bold text-lg tracking-tight">
               BookVault
             </span>
           </div>
         )}
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="p-2 rounded-lg bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 transition-colors cursor-pointer"
+          className="p-2 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-500 transition-colors cursor-pointer"
         >
           {collapsed ? <Menu size={20} /> : <X size={20} />}
         </button>
