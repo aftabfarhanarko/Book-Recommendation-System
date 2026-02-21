@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  BookPlus,
   BookOpen,
   Star,
   GraduationCap,
@@ -22,7 +21,7 @@ import {
 const routes = [
   // Admin
   { label: "Admin Dashboard", icon: LayoutDashboard, path: "/admin/dashboard" },
-  { label: "Admin Add Books", icon: BookPlus, path: "/admin/add-books" },
+  { label: "Admin Add Books", icon: BookOpen, path: "/admin/add-books" },
   { label: "Admin Category Books", icon: BookOpen, path: "/admin/category" },
   { label: "Admin Tutorials", icon: GraduationCap, path: "/admin/tutorials" },
   { label: "Admin User Manage", icon: Users, path: "/admin/user-manage" },
